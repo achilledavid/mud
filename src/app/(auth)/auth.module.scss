@@ -7,8 +7,15 @@
 
     &>* {
         width: 100%;
-        padding: 2rem;
         grid-column: span 1;
+    }
+
+    &>div:not(.form) {
+        padding: 0.5rem;
+
+        * {
+            color: rgb(255, 255, 255);
+        }
     }
 
     .form {
@@ -17,6 +24,7 @@
         align-items: center;
         max-width: 512px;
         margin: auto;
+        padding: 2rem;
 
         h1 {
             font-size: 1.25rem;

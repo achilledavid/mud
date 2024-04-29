@@ -8,6 +8,8 @@ async function main() {
         data: {
             email: "davidachille18@gmail.com",
             password: bcrypt.hashSync("1234", 10),
+            lastname: "David",
+            firstname: "Achille"
         }
     })
     console.log({ user })

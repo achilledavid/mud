@@ -8,12 +8,16 @@ import { z } from "zod"
 import { Separator } from "@/components/ui/separator"
 import { useState } from "react"
 import { LoaderCircle } from "lucide-react"
+import { signIn } from "next-auth/react"
+import Link from "next/link"
 
 const formSchema = z.object({
     email: z.string().min(1, {
         message: "E-mail is required.",
     }).max(50, {
         message: "E-mail must be at most 50 characters.",
+    }).email({
+        message: "Invalid e-mail address.",
     }),
     password: z.string().min(1, {
         message: "Password is required.",
@@ -32,12 +36,18 @@ export default function SignInForm() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        setLoading(true);
-        setTimeout(() => {
-            console.log(values);
-            setLoading(false);
-        }, 1000);
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        // setLoading(true);
+        // try {
+        //     const res = await signIn('credentials', { redirect: false, ...values });
+        //     setLoading(false);
+        //     if (res && res.error) {
+        //         throw new Error();
+        //     }
+        // } catch (error) {
+        //     setLoading(false);
+        //     throw new Error("Invalid credentials.")
+        // }
     }
 
     return (
@@ -73,11 +83,14 @@ export default function SignInForm() {
                     {loading && <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />}
                     Sign In
                 </Button>
+                <Button type="button" asChild variant="link">
+                    <Link href="/sign-up">No Account ?</Link>
+                </Button>
                 <div className="relative">
                     <div className="absolute inset-0 flex items-center"><Separator /></div>
                     <div className="relative flex justify-center text-xs uppercase"><span className="bg-background px-2 text-muted-foreground">Or continue with</span></div>
                 </div>
-                <Button type="button" className="w-full" variant="outline" disabled={loading}>
+                <Button type="button" className="w-full" variant="outline" disabled>
                     {loading ? <LoaderCircle className="mr-2 h-4 w-4 animate-spin" /> : <GoogleLogo />}
                     Google
                 </Button>
