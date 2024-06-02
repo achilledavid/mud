@@ -1,5 +1,48 @@
 .container {
-    $padding: 1rem;
-    padding: $padding;
-    padding-top: 56px;
+    padding: 1rem;
+    padding-top: 3.5rem;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    .hero {
+        text-wrap: balance;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 10rem;
+
+        &>h1 {
+            font-size: max(2rem, min(5vw, 4rem));
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.2px;
+        }
+
+        &>p {
+            line-height: 1.2;
+            margin-top: 1rem;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+
+        &>button,
+        &>a {
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .container {
+        .hero {
+            margin-top: 0;
+
+            &>button,
+            &>a {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+
 }

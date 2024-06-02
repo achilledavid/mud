@@ -2,13 +2,13 @@
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { Password } from "@/components/ui/password"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Separator } from "@/components/ui/separator"
 import { useState } from "react"
 import { LoaderCircle } from "lucide-react"
-import { signIn } from "next-auth/react"
 import Link from "next/link"
 
 const formSchema = z.object({
@@ -37,17 +37,6 @@ export default function SignInForm() {
     })
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        // setLoading(true);
-        // try {
-        //     const res = await signIn('credentials', { redirect: false, ...values });
-        //     setLoading(false);
-        //     if (res && res.error) {
-        //         throw new Error();
-        //     }
-        // } catch (error) {
-        //     setLoading(false);
-        //     throw new Error("Invalid credentials.")
-        // }
     }
 
     return (
@@ -73,7 +62,8 @@ export default function SignInForm() {
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input type="password" {...field} />
+                                {/* <Input type="password" {...field} /> */}
+                                <Password {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>

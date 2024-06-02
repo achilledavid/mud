@@ -69,7 +69,9 @@
 @layer base {
   * {
     @apply border-border;
+    font-style: normal;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -1,0 +1,33 @@
+.container {
+    padding: 0 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background-color: hsl(var(--background));
+    min-height: 3.5rem;
+
+    &.auth {
+        background-color: transparent;
+
+        .logo {
+            color: hsl(var(--background));
+        }
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .container {
+        &.auth {
+            background-color: hsl(var(--background));
+
+            .logo {
+                color: #000;
+            }
+        }
+    }
+}
